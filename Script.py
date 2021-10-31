@@ -1,5 +1,7 @@
 class script(object):
-    START_TXT = """Hi {},𝙸 𝙲𝙰𝙽 𝙿𝚁𝙾𝚅𝙸𝙳𝙴 𝙼𝙾𝚅𝙸𝙴𝚂 IN INLINE MODE IN YOUR PM AND GROUPS. JUST TYPE MY USERNAME ON YOUR KEYBOARD AND ENJOYIII"""
+    START_TXT = """Hi {},
+    I can Provide Movies In Inline Mode, Give You IMDB Data On Movies/Series.
+    Press The Search Button Below To Start Downloading Movies..."""
     HELP_TXT = """𝙷𝙴𝚈 {}
 𝙷𝙴𝚁𝙴 𝙸𝚂 𝚃𝙷𝙴 𝙷𝙴𝙻𝙿 𝙵𝙾𝚁 𝙼𝚈 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂."""
     ABOUT_TXT = """✯ 𝙼𝚈 𝙽𝙰𝙼𝙴: {me.first_name}
@@ -13,7 +15,7 @@ class script(object):
 - Filter is the feature were users can set automated replies for a particular keyword and tessa will respond whenever a keyword is found the message
 
 <b>NOTE:</b>
-1. {me.first_name} should have admin privillage.
+1. I should have admin privillage.
 2. only admins can add filters in a chat.
 3. alert buttons have a limit of 64 characters.
 
@@ -24,11 +26,11 @@ class script(object):
 • /delall - <code>delete the whole filters in a chat (chat owner only)</code>"""
     BUTTON_TXT = """Help: <b>Buttons</b>
 
-- {me.first_name} Supports both url and alert inline buttons.
+- I Support both url and alert inline buttons.
 
 <b>NOTE:</b>
 1. Telegram will not allows you to send buttons without any content, so content is mandatory.
-2. {me.first_name} supports buttons with any telegram media type.
+2. I support buttons with any telegram media type.
 3. Buttons should be properly parsed as markdown format
 
 <b>URL buttons:</b>
