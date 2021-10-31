@@ -1,6 +1,7 @@
 import os
 import logging
 import random
+from info import SUPPORT_CHAT
 from Script import script
 from pyrogram import Client, filters
 from pyrogram.errors.exceptions.bad_request_400 import ChatAdminRequired
