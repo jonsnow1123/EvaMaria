@@ -108,7 +108,7 @@ async def addfilter(client, message):
     await add_filter(grp_id, text, reply_text, btn, fileid, alert)
 
     await message.reply_text(
-        f"Filter for  `{text}`  added in  **{title}**",
+        f"Filter for "`{text}`" added in  **{title}**",
         quote=True,
         parse_mode="md"
     )
@@ -214,8 +214,8 @@ async def deletefilter(client, message):
     except:
         await message.reply_text(
             "<i>Mention the filtername which you wanna delete!</i>\n\n"
-            "<code>/del filtername</code>\n\n"
-            "Use /viewfilters to view all available filters",
+            "<code>/del</code> filtername\n\n"
+            "Use <code>/viewfilters</code> to view all available filters",
             quote=True
         )
         return
