@@ -91,7 +91,7 @@ async def next_page(bot, query):
         for file in files:
             file_id = file.file_id
             btn.append(
-                [InlineKeyboardButton(text=f"{file.file_name}", callback_data=f'files#{file_id}'), InlineKeyboardButton(text=f"{get_size(file.file_size)}", callback_data=f'files_#{file_id}')]
+                [InlineKeyboardButton(text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file_id}'), callback_data=f'files_#{file_id}')]
                 )
     if 0 < offset <= 10:
         off_set = 0
@@ -384,8 +384,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('Connection', callback_data='coct'),
             InlineKeyboardButton('Extra Mods', callback_data='extra')
             ],[
-            InlineKeyboardButton('🏠 Home', callback_data='start'),
-            InlineKeyboardButton('🔮 Status', callback_data='stats')
+            InlineKeyboardButton('🏠 Home', callback_data='start')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -395,8 +394,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "about":
         buttons= [[
-            InlineKeyboardButton('🤖 Updates', url='https://t.me/EvaMariaUpdates'),
-            InlineKeyboardButton('♥️ Source', callback_data='source')
+            InlineKeyboardButton('🤖 Updates', url=f'https://t.me/{SUPPORT_CHAT}')
             ],[
             InlineKeyboardButton('🏠 Home', callback_data='start'),
             InlineKeyboardButton('🔐 Close', callback_data='close_data')
@@ -530,7 +528,7 @@ async def auto_filter(client, message):
             for file in files:
                 file_id = file.file_id
                 btn.append(
-                    [InlineKeyboardButton(text=f"{file.file_name}", callback_data=f'files#{file_id}'), InlineKeyboardButton(text=f"{get_size(file.file_size)}", callback_data=f'files_#{file_id}')]
+                    [InlineKeyboardButton(text=f"[{get_size(file.file_size)}] {file.file_name}",callback_data=f'files_#{file_id}')]
                     )
         if not btn:
             return
@@ -546,11 +544,5 @@ async def auto_filter(client, message):
             btn.append(
                 [InlineKeyboardButton(text="🗓 1/1",callback_data="pages")]
             )
-        imdb=await get_poster(search)
-        if imdb and imdb.get('poster'):
-            await message.reply_photo(photo=imdb.get('poster'), caption=f"<b>Query: {search}</b> \n‌‌‌‌IMDb Data:\n\n🏷 Title: <a href={imdb['url']}>{imdb.get('title')}</a>\n🎭 Genres: {imdb.get('genres')}\n📆 Year: <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>\n🌟 Rating: <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10", reply_markup=InlineKeyboardMarkup(btn))
-        elif imdb:
-            await message.reply_text(f"<b>Query: {search}</b> \n‌‌‌‌IMDb Data:\n\n🏷 Title: <a href={imdb['url']}>{imdb.get('title')}</a>\n🎭 Genres: {imdb.get('genres')}\n📆 Year: <a href={imdb['url']}/releaseinfo>{imdb.get('year')}</a>\n🌟 Rating: <a href={imdb['url']}/ratings>{imdb.get('rating')}</a> / 10", reply_markup=InlineKeyboardMarkup(btn))
-        else:
-            await message.reply_text(f"<b>Here is What I Found In My Database For Your Query {search} ‌‌‌‌‎ </b>", reply_markup=InlineKeyboardMarkup(btn))
+        await message.reply_text(f"<b>Here is What I Found For {search} ‌‌‌‌‎ </b>", reply_markup=InlineKeyboardMarkup(btn))
         
