@@ -1,6 +1,7 @@
 #Kanged From @TroJanZheX
 import asyncio
 import re
+from info import SUPPORT_CHAT
 import ast
 from Script import script
 import pyrogram
